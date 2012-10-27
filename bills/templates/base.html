@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <title>{% block title %}Base template{% endblock %}</title>
+</head>
+
+<body>
+    <div id="header">
+        {% block header %}
+            Page title
+        {% endblock %}
+    </div>
+
+    <div id="sidebar">
+        {% block sidebar %}
+
+        {% endblock %}
+    </div>
+
+    <div id="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+</body>
+</html>

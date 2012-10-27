@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'bills.views.home', name='home'),
+    url(r'^billentry/', include('billentry.urls')),
     # url(r'^bills/', include('bills.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
@@ -14,4 +14,5 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    (r'^login/', 'django.contrib.auth.views.login', {'template_name': 'billentry/login.html'}), 
 )
