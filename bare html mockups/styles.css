@@ -97,13 +97,15 @@ header, section, footer, nav {
 		border: 1px #CCC solid;
 		color: #000;
 		display: block;
-		padding: 5px;
 		float: left;
 		font-size: 20px;
+		line-height: 35px;
+		padding: 5px;
 		text-align: center;
 		text-decoration: none;
 		margin: 0px;
-		width: 90px;
+		vertical-align: central;
+		width: 130px;
 	}
 	
 		nav a:nth-last-of-type(1) {
@@ -148,9 +150,33 @@ table {
 	#Payments tr:hover {background-color: #fddb6f;}
 	#Payments tr:nth-of-type(1) {background-color: #FFF;}
 	#Payments tr.notes {background-color:#DEF;}
+	#Payments tr {cursor: pointer;}
+	
+		#Payments td:nth-of-type(1):before {
+			background-image: url(images/pm_toggles.png);
+			background-position: right;
+			background-repeat: no-repeat;
+			content: "";
+			float: left;
+			height: 16px;
+			margin: 0 10px 0 -5px;
+			width: 16px;
+		}
+			
+			#Payments .notes td:before {
+				height: 0;
+				width: 0;
+			}
+			
+			#Payments .notes td:hover:before {
+				background-position: left;
+				height: 16px;
+				margin-left: -20px;
+				margin-right: 0px;
+				width: 16px;
+			}
 	
 	tr {
-		cursor: pointer;
 		height: 26px;
 	}
 		tr.notes {
@@ -158,7 +184,7 @@ table {
 		}
 		
 			tr.notes td {
-				padding: 5px 15px 5px 30px;
+				padding: 5px 15px 5px 28px;
 			}
 	
 		
