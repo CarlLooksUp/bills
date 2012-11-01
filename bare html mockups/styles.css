@@ -171,7 +171,7 @@ table {
 			#Payments .notes td:hover:before {
 				background-position: left;
 				height: 16px;
-				margin-left: -20px;
+				margin-left: -18px;
 				margin-right: 0px;
 				width: 16px;
 			}
