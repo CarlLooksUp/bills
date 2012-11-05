@@ -1,7 +1,9 @@
 body {
 	background-color: #DEF;
-	margin: 0px 15px 0px;
-	padding: 0px;
+	font-family: Verdana, Geneva, sans-serif;
+	margin: 0px auto 0px;
+	max-width: 1030px;
+	padding: 0px 15px 0px;
 }
 
 fieldset {
@@ -10,79 +12,88 @@ fieldset {
 	margin: 0;
 }
 
+.clear {
+	clear: both;
+	content: "";
+}
+
 /* login baesd on a guide from red team design<http://www.red-team-design.com/slick-login-form-with-html5-css3>.
 */
 
 
-#login, table {
+form, table {
 	background-color: #FFF;
 	border: 1px solid #ccc;
-		-moz-border-radius: 5px;
-		-webkit-border-radius: 5px;
-	border-radius: 5px;
+	border-radius: 6px;
+		-moz-border-radius: 6px;
+		-webkit-border-radius: 6px;
 	box-shadow: 
-        0 0 2px rgba(0, 0, 0, 0.2),  
-        0 1px 1px rgba(0, 0, 0, .2),
-		0 3px 0 #CCC,
-		0 4px 0 rgba(0, 0, 0, .2);
-	margin: 200px auto 0px;
+        0px 0px 2px rgba(0, 0, 0, 0.2),  
+        0px 2px 1px rgba(0, 0, 0, .2),
+		0px 4px 0px #CCC,
+		0px 6px 0px rgba(0, 0, 0, .2);
+	margin: 100px auto 0px;
 	padding: 5px;
 	text-align: center;
-	width: 500px;
 }
 
-	#login h1 {
+form {
+	max-width: 500px;
+}
+
+	form h1 {
 		color: #666;
 		font-variant: small-caps;
 		margin: 0px;
 		padding: 10px 0px 0px;
 	}
 
-	#login #textInputs input {
+	.textInputs input, .textInputs textarea {
 		background-color: #EEE;
 		border: 1px solid #ccc;
-			-moz-border-radius: 5px;
-			-webkit-border-radius: 5px;
-		border-radius: 5px;
+		border-radius: 6px;
+			-moz-border-radius: 6px;
+			-webkit-border-radius: 6px;
 		height: 15px;
-		margin: 10px 15px 10px;
+		margin: 10px auto 10px;
 		padding: 10px;
-		width: 448px;
+		width: 89%
 	}
+		.textInputs textarea {height: auto;}
 
-	#login #textInputs input:focus {
+	.textInputs input:focus, .textInputs textarea:focus {
 		background-color: #FFF;
 		border: #fddb6f 1px solid;
 	}
 	
-	#login #actionable {
+	.actionable {
 		padding-bottom: 10px;
 	}
 	
-		#login #actionable input {
+		.actionable input {
 			background-color: #ffb94b;
-	
 			border: 1px solid #ccc;
-				-moz-border-radius: 5px;
-				-webkit-border-radius: 5px;
-			border-radius: 5px;
+			border-radius: 6px;
+				-moz-border-radius: 6px;
+				-webkit-border-radius: 6px;
 			cursor: pointer;
 			float: left;
 			font-weight: bolder;
 			height: 35px;
-			margin-left: 15px;
+			margin-left: 20px;
 			width: 120px;
 		}
 		
-			#login #actionable input:focus,#login #actionable input:hover  {
+			.actionable input:focus,
+			.actionable input:hover  {
 				 background-color: #fddb6f;
 			}
 		
-		#login #actionable a {
+		.actionable a {
 			color: #3151A2;
 			float: right;
 			line-height: 35px;
-			margin-right: 15px;
+			margin-right: 1em;
 		}
 		
 /* End of login CSS */
@@ -98,18 +109,19 @@ header, section, footer, nav {
 		color: #000;
 		display: block;
 		float: left;
-		font-size: 20px;
+		font-size: 16px;
 		line-height: 35px;
 		padding: 5px;
 		text-align: center;
 		text-decoration: none;
-		margin: 0px;
+		margin-right: -1px;
 		vertical-align: central;
 		width: 130px;
 	}
 	
 		nav a:nth-last-of-type(1) {
 			float: right;
+			margin: 0px;
 		}
 		
 		nav a:hover {
@@ -123,14 +135,27 @@ table {
 	width: 50%;
 }
 
+	.add {
+		margin: 10px auto 10px;
+		max-width: 600px;
+		display: none;
+	}
+		.add .actionable input:nth-last-of-type(1) {
+			float: right;
+			margin-right: 20px;
+		}
+		
 	caption {
 		font-size: 22px;
 	}
 
 	#Payments {clear: left;}
 
-	#Payments td:nth-of-type(3):before,
+	/* Total column for Payments */
+	#Payments td:nth-of-type(3):before, 
+	/* Amount column for Reciepts */
 	#Reciepts td:nth-of-type(2):before,
+	/* Purchase column for Reciepts */ 
 	#Reciepts td:nth-of-type(3):before {
 		content: "$";
 	}
@@ -152,7 +177,7 @@ table {
 	#Payments tr.notes {background-color:#DEF;}
 	#Payments tr {cursor: pointer;}
 	
-		#Payments td:nth-of-type(1):before {
+		/*#Payments td:nth-of-type(1):before {
 			background-image: url(images/pm_toggles.png);
 			background-position: right;
 			background-repeat: no-repeat;
@@ -171,10 +196,10 @@ table {
 			#Payments .notes td:hover:before {
 				background-position: left;
 				height: 16px;
-				margin-left: -18px;
+				margin-left: -20px;
 				margin-right: 0px;
 				width: 16px;
-			}
+			}*/
 	
 	tr {
 		height: 26px;
@@ -190,5 +215,5 @@ table {
 		
 	
 		tr:nth-child(1):hover {
-			background-color: #FFF;
+			background-co
 		}
