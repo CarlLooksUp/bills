@@ -3,13 +3,14 @@ from django.contrib.auth.models import User, Group
 
 
 class Payment(models.Model):
-    date = models.DateTimeField('date of purchase')    
+    date = models.DateTimeField('date of purchase')
     notes = models.CharField(max_length=300)
     payer = models.ForeignKey(User)
     total = models.IntegerField()
 
     def __unicode__(self):
-        return self.payer.get_full_name() + " paid " + self.get_total() + " for " + self.notes
+        return (self.payer.get_full_name() + " paid " + ("%0.2f" % self.get_total()) + " for " +
+                self.notes)
 
     def get_total(self): #Extend IntegerField to handle currency?
         return self.total/100.0
@@ -24,9 +25,9 @@ class Receipt(models.Model):
     purchase = models.ForeignKey(Payment)
 
     def __unicode__(self):
-        return (self.debtor.get_full_name() + " owes " + self.get_amount() + " to " + 
+        return (self.debtor.get_full_name() + " owes $" + ("%0.2f" % self.get_amount()) + " to " +
                 self.purchase.payer.get_full_name())
-    
+
     def get_amount(self): #Extend IntegerField to handle currency?
         return self.amount/100.0
 
