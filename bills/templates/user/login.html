@@ -2,13 +2,14 @@
 
 {% block title %}Bills Login{% endblock %}
 
+{% block header %} {% endblock %}
 {% block content %}
 {% load url from future %}
 
 {% if form.errors %}
 <p>Invalid username/password combination</p>
 {% endif %}
-<form id="login" method="post" action="{% url 'django.contribl.auth.views.login' %}">
+<form id="login" method="post" action="{% url 'django.contrib.auth.views.login' %}">
 {% csrf_token %}
  	<h1>Log in here:</h1>
     <fieldset class="textInputs">
