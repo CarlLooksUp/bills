@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Bills Login{% endblock %}
+
+{% block content %}
+{% load url from future %}
+
+{% if form.errors %}
+<p>Invalid username/password combination</p>
+{% endif %}
+<form id="login" method="post" action="{% url 'django.contribl.auth.views.login' %}">
+{% csrf_token %}
+ 	<h1>Log in here:</h1>
+    <fieldset class="textInputs">
+    <!--<input type="text" placeholder="Login ID" autofocus required />-->
+    {{ form.username }}
+    <!--<input type="password" placeholder="Password"  required />-->
+    {{ form.password }}
+    </fieldset>
+    <fieldset class="actionable">
+    	<input type="submit" value="Log In" />
+        <a href="#">Forgot your password?</a>
+    </fieldset>
+    <input type="hidden" name="next" value="{{ next }}" />
+</form>
+{% endblock %}

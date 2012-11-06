@@ -1,0 +1,3 @@
+[submodule "django-dajax"]
+	path = django-dajax
+	url = https://github.com/jorgebastida/django-dajax

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}styles.css" />
     <title>{% block title %}Base template{% endblock %}</title>
 </head>
 
 <body>
     <div id="header">
         {% block header %}
-            Page title
+            <div id="title">Page title</div>i
+            <div id="corner">
+                <a href="/logout/">Log out</a>
+            </div>
         {% endblock %}
     </div>
 
