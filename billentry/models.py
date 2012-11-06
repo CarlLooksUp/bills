@@ -9,8 +9,11 @@ class Payment(models.Model):
     total = models.IntegerField()
 
     def __unicode__(self):
-        return (self.payer.get_full_name() + " paid " + ("%0.2f" % self.get_total()) + " for " +
+        return (self.payer.get_full_name() + " paid $" + (u"%0.2f" % self.get_total()) + " for " +
                 self.notes)
+
+    def __string__(self):
+        return self.__unicode__()
 
     def get_total(self): #Extend IntegerField to handle currency?
         return self.total/100.0
@@ -25,7 +28,7 @@ class Receipt(models.Model):
     purchase = models.ForeignKey(Payment)
 
     def __unicode__(self):
-        return (self.debtor.get_full_name() + " owes $" + ("%0.2f" % self.get_amount()) + " to " +
+        return (self.debtor.get_full_name() + " owes $" + (u'%0.2f' % self.get_amount()) + " to " +
                 self.purchase.payer.get_full_name())
 
     def get_amount(self): #Extend IntegerField to handle currency?
