@@ -10,6 +10,6 @@ from billentry.models import Payment, Receipt
 def index(request):
     return render(request, 'billentry/index.html', 
                   {'user_full_name' : request.user.get_full_name()}, 
-                  content_type = 'application/xhtml+xml')
+                  content_type = 'text/html')
 
 
